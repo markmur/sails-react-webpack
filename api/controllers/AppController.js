@@ -3,8 +3,9 @@ module.exports = {
 
     var bundle;
 
-    if (sails.config.envrionment === 'production') {
+    if (sails.config.environment === 'production') {
       bundle = require('../../assets.json').main.js;
+      console.log(bundle);
     }
 
     return res.view('index', {

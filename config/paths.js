@@ -1,3 +1,5 @@
-module.exports.paths = {
-  paths: '/public',
+module.exports = {
+  paths: {
+    public: 'public',
+  },
 };

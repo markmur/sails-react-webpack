@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV;
 const SaveAssetsJson = require('assets-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   devtool: '#source-map',
@@ -18,8 +19,6 @@ module.exports = {
   bail: true,
 
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server',
     'babel-polyfill',
     './assets/main.jsx',
   ],
@@ -47,6 +46,10 @@ module.exports = {
   },
 
   plugins: [
+    new CleanWebpackPlugin(['public/dist'], {
+      verbose: true,
+      dry: false,
+    }),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({

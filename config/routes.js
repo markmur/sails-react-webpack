@@ -23,6 +23,10 @@
 module.exports.routes = {
 
   // All GET requests are directed to the app controller which renders our app.
-  'GET *': 'AppController.index',
+  'GET /*': {
+    controller: 'AppController',
+    action: 'index',
+    skipAssets: true,
+  },
 
 };
