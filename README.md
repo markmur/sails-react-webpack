@@ -1,15 +1,15 @@
 # Sails + React + Webpack boilerplate
 
-A boilerplate for [Sails](http://sailsjs.org) apps with a React frontend.
+A boilerplate for [Sails](http://sailsjs.org) apps with a [React](https://facebook.github.io/react/) frontend.
 
 ## Includes
 
-* sails-hook-autoreload
-* Sass
-* Autoprefixer
-* React Hot Loader
-* Babel with ES2015
-* React Router
+* [sails-hook-autoreload](https://github.com/sgress454/sails-hook-autoreload)
+* [Sass](https://github.com/jtangelder/sass-loader)
+* [Autoprefixer](https://github.com/passy/autoprefixer-loader)
+* [React Hot Loader](https://github.com/gaearon/react-hot-loader)
+* [Babel with ES2015](https://babeljs.io)
+* [React Router](https://github.com/reactjs/react-router)
 
 ___
 
@@ -25,7 +25,7 @@ ___
 
 ### Run (development)
 
-There are multiple ways to run the project in development as sails and webpack-dev-server run independently. The easiest way is to use Foreman (`npm install -g foreman`) and run:
+There are multiple ways to run the project in development as sails and webpack-dev-server run independently. The easiest way is to use [Foreman](https://github.com/theforeman/foreman) (`npm install -g foreman`) and run:
 
 ```shell
 nf start
