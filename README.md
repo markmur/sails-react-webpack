@@ -34,7 +34,7 @@ There are multiple ways to run the project in development as sails and webpack-d
 nf start
 ```
 
-This will start all processes listed in the `Procfile`. 
+This will start all processes listed in the `Procfile`.
 
 To view your app, go to `http://localhost:3000` in your browser.
 ___
@@ -63,4 +63,8 @@ To run, execute:
 
 This will create a folder for the component in `assets/components` with two files inside:
 - {ComponentName}.jsx
-- {ComponentName}.test.jsx
+- {ComponentName}.test.js
+
+### Testing
+
+To run the react tests (using jest), run `npm test`

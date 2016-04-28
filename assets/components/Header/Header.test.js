@@ -17,7 +17,7 @@ describe('Header', () => {
 
     var node = ReactDOM.findDOMNode(component);
 
-    expect(node).to.not.be('null');
+    expect(node).toBeDefined();
   });
 
 });

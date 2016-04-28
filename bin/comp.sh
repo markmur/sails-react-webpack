@@ -9,9 +9,7 @@ if [ -z "$NAME" ]; then
   exit 1;
 fi
 
-FOLDER='components';
-
-FILE_PATH="../assets/components/$NAME";
+FILE_PATH="./assets/components/$NAME";
 
 printf "\e[94mCreating component in\e[0m $FILE_PATH \n";
 
@@ -57,7 +55,7 @@ describe('$NAME', () => {
 
     var node = ReactDOM.findDOMNode(component);
 
-    expect(node).to.not.be('null');
+    expect(node).toBeDefined();
   });
 
-});" > "$FILE_PATH/$NAME.test.jsx";
+});" > "$FILE_PATH/$NAME.test.js";

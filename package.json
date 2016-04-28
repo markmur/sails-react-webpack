@@ -38,6 +38,7 @@
   "scripts": {
     "start": "node app",
     "debug": "node debug app",
+    "test": "jest",
     "dev": "webpack-dev-server --hot --inline",
     "dist": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "postinstall": "npm run dist"
@@ -52,6 +53,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "autoprefixer-loader": "^3.2.0",
+    "babel-jest": "^12.0.2",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-plugin-transform-runtime": "^6.7.5",
@@ -61,6 +63,8 @@
     "babel-preset-stage-0": "^6.5.0",
     "clean-webpack-plugin": "^0.1.9",
     "css-loader": "^0.23.1",
+    "jest": "^0.1.40",
+    "jest-cli": "^12.0.2",
     "node-sass": "^3.4.2",
     "precss": "^1.4.0",
     "react-addons-test-utils": "^15.0.1",
@@ -69,5 +73,13 @@
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "webpack-dev-server": "^1.14.1"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils"
+    ],
+    "testDirectoryName": "assets/components"
   }
 }
