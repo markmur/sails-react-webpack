@@ -18,6 +18,7 @@ describe('Header', () => {
     var node = ReactDOM.findDOMNode(component);
 
     expect(node).toBeDefined();
+    expect(node.textContent).toEqual('Sails + React + Webpack');
   });
 
 });
