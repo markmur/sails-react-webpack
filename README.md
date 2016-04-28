@@ -50,3 +50,17 @@ sails lift --prod
 You can also manually run webpack with `npm run dist`.
 
 ___
+
+### Generate Components
+
+A simple bash script has been added to the bin folder to quickly create react components with test files.
+
+To run, execute:
+
+```
+./bin/comp.sh (name)
+```
+
+This will create a folder for the component in `assets/components` with two files inside:
+- {ComponentName}.jsx
+- {ComponentName}.test.jsx
