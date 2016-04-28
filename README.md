@@ -69,4 +69,7 @@ ___
 
 ### Testing
 
-To run the react tests (using jest), run `npm test`
+To run the react tests using jest: 
+```shell
+npm test
+```
