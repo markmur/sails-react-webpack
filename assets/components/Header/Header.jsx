@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 
-class Header extends Component {
+export default class Header extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-
     return (
-      <header>
-        <h1>Sails + Webpack + React</h1>
-      </header>
+      <div>Header</div>
     );
   }
 }
-
-export default Header;
