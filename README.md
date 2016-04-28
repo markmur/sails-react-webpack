@@ -65,6 +65,8 @@ This will create a folder for the component in `assets/components` with two file
 - {ComponentName}.jsx
 - {ComponentName}.test.js
 
+___
+
 ### Testing
 
 To run the react tests (using jest), run `npm test`
