@@ -36,6 +36,8 @@ nf start
 
 This will start all processes listed in the `Procfile`.
 
+The alternative is to manually run each process in separate terminal windows.
+
 To view your app, go to `http://localhost:3000` in your browser.
 ___
 
