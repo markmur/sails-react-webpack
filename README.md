@@ -55,12 +55,4 @@ ___
 
 ### Generate Components
 
-A simple bash script has been added to the bin folder to quickly create react components with test files.
-
-To run, execute `node ./bin/comp` and follow the instructions.
-
-You will be prompted to give your component a name, choose between stateful and stateless, choose the destination and whether to create a test file.
-
-This will create a folder for the component with two files:
-- {ComponentName}.jsx
-- {ComponentName}.test.js
+Use [react-component-gen](https://github.com/markmur/react-component-gen) to generate new components on the fly.
