@@ -4,8 +4,8 @@ A boilerplate for [Sails](http://sailsjs.org) apps with a [React](https://facebo
 
 ## Includes
 
-* [Sails](http://sailsjs.org) v0.12.2
-* [React](https://facebook.github.io/react/) v15.0.1
+* [Sails](http://sailsjs.org)
+* [React](https://facebook.github.io/react/)
 * [Babel with ES2015](https://babeljs.io)
 * [React Router](https://github.com/reactjs/react-router)
 * [sails-hook-autoreload](https://github.com/sgress454/sails-hook-autoreload)
