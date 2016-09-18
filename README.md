@@ -1,6 +1,6 @@
-# Sails + React + Webpack boilerplate
+# Sails + React + Webpack CLI
 
-A boilerplate for [Sails](http://sailsjs.org) apps with a [React](https://facebook.github.io/react/) frontend.
+A boilerplate CLI for scaffolding [Sails](http://sailsjs.org) apps with a [React](https://facebook.github.io/react/) frontend.
 
 ## Includes
 
@@ -13,43 +13,44 @@ A boilerplate for [Sails](http://sailsjs.org) apps with a [React](https://facebo
 * [Autoprefixer](https://github.com/passy/autoprefixer-loader)
 * [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 
-
 ___
 
-### Clone
+### Install
+
+Install the module globally:
 
 ```shell
-git clone https://github.com/markmur/sails-react-webpack.git
-cd sails-react-webpack
-npm install
+$ npm install -g sails-react-webpack
 ```
-
 ___
+
+
+### Generating a New Project
+
+To generate a new project, simply run `sails-react-webpack {{project-name}}` in the terminal.
+
+When complete, `cd {{project-name}}` and `npm install` to install all dependencies.
 
 ### Run (development)
 
-There are multiple ways to run the project in development as sails and webpack-dev-server run independently. The easiest way is to use [Foreman](https://github.com/theforeman/foreman) (`npm install -g foreman`) and run:
+`npm start` will run all processes in the Procfile. It will start both Sails AND the Webpack Dev Server simultaneously.
 
 ```shell
-nf start
+npm start
 ```
-
-This will start all processes listed in the `Procfile`.
-
-The alternative is to manually run each process in separate terminal windows.
 
 To view your app, go to `http://localhost:3000` in your browser.
 ___
 
 ### Run (Production)
 
-Wepack builds the bundle files on `postinstall` and sails is lifted the same way it's always lifted in production:
+Webpack builds the bundle files on `postinstall` and sails is lifted the same way it's always lifted in production:
 
 ```shell
 sails lift --prod
 ```
 
-You can also manually run webpack with `npm run dist`.
+You can run this script manually with `npm run dist`.
 
 ___
 
