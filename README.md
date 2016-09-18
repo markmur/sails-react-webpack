@@ -22,8 +22,14 @@ Install the module globally:
 ```shell
 $ npm install -g sails-react-webpack
 ```
-
 ___
+
+
+### Generating a New Project
+
+To generate a new project, simply run `sails-react-webpack {{project-name}}` in the terminal.
+
+When complete, `cd {{project-name}}` and `npm install` to install all dependencies.
 
 ### Run (development)
 
