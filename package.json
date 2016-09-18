@@ -36,10 +36,8 @@
     "webpack": "^1.13.0"
   },
   "scripts": {
-    "start": "node app",
-    "debug": "node debug app",
-    "test": "jest",
-    "dev": "webpack-dev-server --hot --inline",
+    "start": "nf start --wrap",
+    "dev": "node webpackDevServer",
     "dist": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "postinstall": "npm run dist"
   },
