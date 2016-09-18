@@ -31,6 +31,8 @@ To generate a new project, simply run `sails-react-webpack {{project-name}}` in 
 
 When complete, `cd {{project-name}}` and `npm install` to install all dependencies.
 
+___
+
 ### Run (development)
 
 `npm start` will run all processes in the Procfile. It will start both Sails AND the Webpack Dev Server simultaneously.
