@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "assets-webpack-plugin": "^3.4.0",
+    "babel-core": "^6.21.0",
     "colors": "^1.1.2",
     "ejs": "2.3.4",
     "foreman": "^1.4.1",
