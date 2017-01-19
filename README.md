@@ -27,9 +27,19 @@ ___
 
 ### Generating a New Project
 
-To generate a new project, simply run `sails-react-webpack {{project-name}}` in the terminal.
+To generate a new project, simply run `sails-react-webpack [project-name]` in the terminal.
 
-When complete, `cd {{project-name}}` and `npm install` to install all dependencies.
+Then install all dependencies:
+
+```shell
+$ cd [project-name]
+
+$ npm install 
+
+// or
+
+$ yarn
+```
 
 ___
 
