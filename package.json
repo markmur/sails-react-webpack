@@ -8,8 +8,8 @@
     "sails-react-webpack": "bin/sails-react-webpack.js"
   },
   "engines": {
-    "node": "5.8.0",
-    "npm": ">= 3.7.3"
+    "node": ">= 0.10.0",
+    "npm": ">= 1.4.0"
   },
   "keywords": [
     "sails",
