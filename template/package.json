@@ -17,7 +17,7 @@
     "assets-webpack-plugin": "^3.4.0",
     "babel-core": "^6.21.0",
     "colors": "^1.1.2",
-    "ejs": "2.3.4",
+    "ejs": "^2.5.5",
     "foreman": "^1.4.1",
     "grunt": "0.4.5",
     "grunt-contrib-clean": "0.6.0",
