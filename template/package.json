@@ -39,7 +39,7 @@
   "scripts": {
     "start": "nf start --wrap",
     "dev": "node webpackDevServer",
-    "dist": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "dist": "cross-env NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "postinstall": "npm run dist"
   },
   "main": "app.js",
@@ -61,6 +61,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.9",
+    "cross-env": "^5.1.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.4.1",
     "mocha": "^3.0.2",
