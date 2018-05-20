@@ -18,7 +18,7 @@ export default class App extends Component {
           <h3>Backend Features</h3>
 
           <ul>
-            <li><a href="https://sailsjs.org">Sails v0.12.2</a></li>
+            <li><a href="https://sailsjs.org">Sails v1.0.2</a></li>
             <li><a href="https://github.com/sgress454/sails-hook-autoreload">Sails Autoreload Hook</a></li>
           </ul>
 
