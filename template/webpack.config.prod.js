@@ -5,15 +5,16 @@ const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV;
 const SaveAssetsJson = require('assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  devtool: '#source-map',
+  // devtool: '#source-map',
 
   // Capture timing information for each module
   profile: false,
 
   // Switch loaders to debug mode
-  debug: false,
+  mode: NODE_ENV,
 
   // Report the first error as a hard error instead of tolerating it
   bail: true,
@@ -24,25 +25,24 @@ module.exports = {
   ],
 
   output: {
-    path: 'public/dist/',
-    pathInfo: true,
+    path: path.join(__dirname, '/public/dist/'),
+    pathinfo: true,
     publicPath: '/dist/',
     filename: 'bundle.[hash].min.js',
   },
 
   resolve: {
-    root: path.join(__dirname, ''),
-    modulesDirectories: [
-      'web_modules',
-      'node_modules',
-      'assets',
-      'assets/components',
-    ],
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
+    modules: [__dirname, 'node_modules'],
+        alias:{
+        assets: 'assets',
+        styles:'assets/styles',
+        components: 'assets/components/'
+    },
+    extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
   },
 
   resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
+    modules: [ 'node_modules' ],
   },
 
   plugins: [
@@ -50,17 +50,8 @@ module.exports = {
       verbose: true,
       dry: false,
     }),
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      output: {
-        comments: false,
-      },
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-      },
-    }),
+    new webpack.optimize.OccurrenceOrderPlugin(true),
+    new UglifyJsPlugin,
     new SaveAssetsJson({
       path: process.cwd(),
       filename: 'assets.json',
@@ -73,19 +64,19 @@ module.exports = {
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/, // sass files
-        loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded',
+        loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'],
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9]+)?$/, // fonts files
-        loader: 'file-loader?name=[path][name].[ext]',
+        loaders: ['file-loader?name=[path][name].[ext]'],
       },
       {
         test: /\.jsx?$/, // react files
         exclude: /node_modules/,
-        loaders: ['babel?presets[]=es2015,presets[]=stage-0,presets[]=react'],
+        loaders: ['babel-loader?presets[]=es2015,presets[]=stage-0,presets[]=react'],
         include: path.join(__dirname, 'assets'),
       },
     ],
