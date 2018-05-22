@@ -1,2 +1,2 @@
 backend: cross-env PORT=3000 sails lift
-frontend: node webpackDevServer
+frontend: webpack-dev-server --config webpack.config.dev.js --hot
