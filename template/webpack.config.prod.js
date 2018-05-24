@@ -5,11 +5,16 @@ const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV;
 const SaveAssetsJson = require('assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+  // devtool: '#source-map',
 
   // Capture timing information for each module
   profile: false,
+
+  // Switch loaders to debug mode
+  mode: NODE_ENV,
 
   // Report the first error as a hard error instead of tolerating it
   bail: true,
@@ -46,15 +51,7 @@ module.exports = {
       dry: false,
     }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
-    new webpack.optimize.UglifyJsPlugin({
-      output: {
-        comments: false,
-      },
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-      },
-    }),
+    new UglifyJsPlugin,
     new SaveAssetsJson({
       path: process.cwd(),
       filename: 'assets.json',

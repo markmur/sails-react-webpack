@@ -2,19 +2,25 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
+  mode: NODE_ENV,
+
   devtool: 'cheap-module-eval-source-map',
 
   entry: [
+    'babel-polyfill',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/dev-server',
     './assets/main.jsx',
   ],
 
   output: {
     path: path.join(__dirname, '/public/dist/'),
     filename: 'bundle.js',
+    pathinfo: true,
+    publicPath: 'http://localhost:8080/dist/',
   },
 
   resolve: {
@@ -28,7 +34,7 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       __ENV__: NODE_ENV,
     }),
@@ -47,7 +53,7 @@ module.exports = {
       {
         test: /\.jsx?$/, // react files
         exclude: /node_modules/,
-        use: 'babel-loader',
+        loaders: ['babel-loader'],
         include: path.join(__dirname, 'assets'),
       },
     ],
