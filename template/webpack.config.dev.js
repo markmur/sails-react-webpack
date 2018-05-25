@@ -25,10 +25,10 @@ module.exports = {
 
   resolve: {
     modules: [__dirname, 'node_modules'],
-        alias:{
-        assets: 'assets',
-        styles:'assets/styles',
-        components: 'assets/components/'
+    alias:{
+      assets: 'assets',
+      styles:'assets/styles',
+      components: 'assets/components/'
     },
     extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
   },
@@ -44,16 +44,18 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/, // sass files
-        loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'],
+        use: [
+          {loader: 'style-loader'}, {loader: 'css-loader?sourceMap'}, {loader: 'sass-loader?sourceMap'}
+        ],
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9]+)?$/, // fonts files
-        loaders: ['file-loader?name=[path][name].[ext]'],
+        use: [{loader: 'file-loader?name=[path][name].[ext]'}],
       },
       {
         test: /\.jsx?$/, // react files
         exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        use: [{loader:'babel-loader'}],
         include: path.join(__dirname, 'assets'),
       },
     ],
