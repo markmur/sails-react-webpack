@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
-  target: 'web',
+  mode: NODE_ENV,
 
   devtool: 'cheap-module-eval-source-map',
 
@@ -19,21 +19,18 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/public/dist/'),
     filename: 'bundle.js',
-    pathInfo: true,
+    pathinfo: true,
     publicPath: 'http://localhost:8080/dist/',
-    hot: true,
   },
 
   resolve: {
-    root: path.join(__dirname, ''),
-    modulesDirectories: [
-      'web_modules',
-      'node_modules',
-      'assets',
-      'assets/components',
-      'assets/styles',
-    ],
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
+    modules: [__dirname, 'node_modules'],
+    alias:{
+      assets: 'assets',
+      styles:'assets/styles',
+      components: 'assets/components/'
+    },
+    extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
   },
 
   plugins: [
@@ -44,19 +41,21 @@ module.exports = {
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/, // sass files
-        loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded',
+        use: [
+          {loader: 'style-loader'}, {loader: 'css-loader?sourceMap'}, {loader: 'sass-loader?sourceMap'}
+        ],
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9]+)?$/, // fonts files
-        loader: 'file-loader?name=[path][name].[ext]',
+        use: [{loader: 'file-loader?name=[path][name].[ext]'}],
       },
       {
         test: /\.jsx?$/, // react files
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=stage-0,presets[]=react'],
+        use: [{loader:'babel-loader'}],
         include: path.join(__dirname, 'assets'),
       },
     ],
