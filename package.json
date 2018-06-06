@@ -1,7 +1,7 @@
 {
   "name": "sails-react-webpack",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A Sails, React & Webpack boilerplate",
   "preferGlobal": true,
   "bin": {
