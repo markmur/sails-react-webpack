@@ -18,7 +18,22 @@
     "boilerplate"
   ],
   "scripts": {
-    "start": "node bin/sails-react-webpack"
+    "start": "node bin/sails-react-webpack",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": [
+        "prettier --write",
+        "git add",
+        "xo"
+      ]
+    }
+  },
+  "precommit": {
+    "run": [
+      "lint-staged"
+    ]
   },
   "main": "index.js",
   "repository": {
