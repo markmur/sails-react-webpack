@@ -1,4 +1,4 @@
 {
-  "plugins": ["react-hot-loader/babel", "transform-runtime", "react-html-attrs"],
-  "presets": ["react", "es2015"]
+  "presets": ["env", "react"],
+  "plugins": ["react-hot-loader/babel", "transform-runtime", "react-html-attrs"]
 }

@@ -1,11 +1,8 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
-const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
-  mode: NODE_ENV,
+  mode: 'development',
 
   devtool: 'cheap-module-eval-source-map',
 
@@ -13,21 +10,21 @@ module.exports = {
     'babel-polyfill',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/dev-server',
-    './assets/main.jsx',
+    './assets/main.jsx'
   ],
 
   output: {
     path: path.join(__dirname, '/public/dist/'),
     filename: 'bundle.js',
     pathinfo: true,
-    publicPath: 'http://localhost:8080/dist/',
+    publicPath: 'http://localhost:8080/dist/'
   },
 
   resolve: {
     modules: [__dirname, 'node_modules'],
-    alias:{
+    alias: {
       assets: 'assets',
-      styles:'assets/styles',
+      styles: 'assets/styles',
       components: 'assets/components/'
     },
     extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
@@ -36,32 +33,32 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      __ENV__: NODE_ENV,
-    }),
+      __ENV__: process.env.NODE_ENV
+    })
   ],
 
   module: {
     rules: [
       {
-        test: /\.scss$/, // sass files
+        test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader?sourceMap' }, 
+          { loader: 'css-loader?sourceMap' },
           { loader: 'sass-loader?sourceMap' }
-        ],
+        ]
       },
       {
-        test: /\.(ttf|eot|svg|woff)(\?[a-z0-9]+)?$/, // fonts files
-        use: [{loader: 'file-loader?name=[path][name].[ext]'}],
+        test: /\.(ttf|eot|svg|woff)(\?[a-z0-9]+)?$/,
+        use: [{ loader: 'file-loader?name=[path][name].[ext]' }]
       },
       {
-        test: /\.jsx?$/, // react files
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [{loader:'babel-loader'}],
-        include: path.join(__dirname, 'assets'),
-      },
+        use: [{ loader: 'babel-loader' }],
+        include: path.join(__dirname, 'assets')
+      }
     ],
 
-    noParse: /\.min\.js/,
-  },
+    noParse: /\.min\.js/
+  }
 };
